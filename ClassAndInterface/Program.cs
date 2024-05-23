@@ -12,8 +12,10 @@ namespace ClassAndInterface
         {
             Student student = new Student();
             student.Run();
+            student.Eat();
             Person person = new Student();
             person.Run();
+            person.Eat();
             Console.ReadKey();
 
         }
@@ -37,12 +39,22 @@ namespace ClassAndInterface
         public void Run(){
             Console.WriteLine("Person can run!");
         }
+
+        public virtual void Eat()
+        {
+            Console.WriteLine("Person can eat!");
+        }
     }
 
     class Student: Person{
-        public void Run()
+        public new void Run() // 这里是隐藏了父类的方法
         {
             Console.WriteLine("Student can run!");
+        }
+
+        public override void Eat()
+        {
+            Console.WriteLine("Student can eat!");
         }
     }
 }
